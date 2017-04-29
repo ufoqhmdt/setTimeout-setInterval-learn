@@ -2,11 +2,11 @@
 var begin = +new Date;
 var count = 0;
 
-document.getElementById('main').addEventListener('click', function() {
+function block(){
   console.log('\nclick start',logTime());
   waitWiths(5);
   console.log('click over',logTime());
-})
+}
 
 function logTime(){
   var rtn = '第'+(+new Date - begin)/1000;
@@ -18,12 +18,14 @@ function waitWiths(s) {
   while (+new Date - startTime < s * 1000) {};
 }
 
+block();
+
 //换一下setTimeout和setInterval的位置，会有不同的效果
-setTimeout(function() {
-  console.log('\nsetTimeout callback start',logTime());
-  console.log('hello');
-  console.log('setTimeout callback end',logTime());
-}, 2000);
+// setTimeout(function() {
+//   console.log('\nsetTimeout callback start',logTime());
+//   console.log('hello');
+//   console.log('setTimeout callback end',logTime());
+// }, 1000);
 
 //修改不同的时间节点也会有不同的效果
 var ufo = setInterval(function() {
@@ -34,7 +36,3 @@ var ufo = setInterval(function() {
   count++;
   if(count === 10) clearInterval(ufo);
 }, 1000);
-
-// some code
-
-document.getElementById('main').click();
