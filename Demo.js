@@ -1,5 +1,6 @@
 
 var begin = +new Date;
+var count = 0;
 
 document.getElementById('main').addEventListener('click', function() {
   console.log('\nclick start',logTime());
@@ -26,11 +27,13 @@ setTimeout(function() {
 
 //修改不同的时间节点也会有不同的效果
 var ufo = setInterval(function() {
-  console.log('\ninterval callback start',logTime());
+  console.log('\n第',count,'次interval运行-------');
+  console.log('interval callback start',logTime());
   console.log('world');
   console.log('interval callback end',logTime());
+  count++;
+  if(count === 10) clearInterval(ufo);
 }, 1000);
-
 
 // some code
 
